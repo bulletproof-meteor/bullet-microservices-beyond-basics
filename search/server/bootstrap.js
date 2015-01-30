@@ -29,3 +29,13 @@ Meteor.methods({
     return Packages.find().count();
   }
 });
+
+Meteor.publish("topSearches", function() {
+  var collName = 'top-searches';
+  this.added(collName, "1", {text: "bootstrap"});
+  this.added(collName, "2", {text: "performance"});
+  this.added(collName, "3", {text: "router"});
+  this.added(collName, "4", {text: "accounts"});
+  this.added(collName, "5", {text: "polymer"});
+  this.ready();
+});
