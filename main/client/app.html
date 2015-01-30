@@ -8,6 +8,7 @@
       </p>
     </div>
     {{> searchBox }}
+    {{> topSearches}}
     {{> searchResult }}
     {{> topPackages }}
   </div>
@@ -15,6 +16,17 @@
 
 <template name="searchBox">
   <input type="text" id="search-box" placeholder="search packages here" />
+</template>
+
+<template name="topSearches">
+  <div id="top-searches">
+    {{#if topSearches}}
+      Top searches are:
+      {{#each topSearches}}
+        {{text}},
+      {{/each}}
+    {{/if}}
+  </div>
 </template>
 
 <template name="searchResult">

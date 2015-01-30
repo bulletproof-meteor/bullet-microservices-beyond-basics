@@ -1,5 +1,5 @@
 Cluster.connect("mongodb://localhost/service-discovery");
-Cluster.register("search");
+Cluster.register("logging");
 // make this a capped collection to rotate logs
 var Logs = new Meteor.Collection('logs');
 
