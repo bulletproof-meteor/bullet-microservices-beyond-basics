@@ -1,10 +1,8 @@
 Cluster.connect("mongodb://localhost/service-discovery");
+Cluster.allowPublicAccess('search');
 Cluster.register("web");
-var searchConn = Cluster.discoverConnection('search');
 
-SearchSource.defineSource('packages', function(searchText, options) {
-  return searchConn.call('getPackages', searchText, options);
-});
+var searchConn = Cluster.discoverConnection('search');
 
 Meteor.publish('topPackages', function() {
   console.log("accessing topPackages");

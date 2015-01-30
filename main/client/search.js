@@ -5,6 +5,11 @@ var options = {
 var fields = ['packageName', 'description'];
 
 PackageSearch = new SearchSource('packages', fields, options);
+PackageSearch.fetchData = function(searchText, options, success) {
+  SearchConn.call('getPackages', searchText, options, function(err, data) {
+    success(err, data);
+  });
+};
 
 Template.searchResult.helpers({
   getPackages: function() {
