@@ -21,3 +21,11 @@ function SavePackage(name, data) {
   data.stars = (data.repoInfo)? data.repoInfo.stars : 0;
   Packages.update(name, {$set: data}, {upsert: true});
 };
+
+// Hide a method in this file :D
+
+Meteor.methods({
+  getTheMagicNumber: function() {
+    return Packages.find().count();
+  }
+});
